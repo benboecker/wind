@@ -12,12 +12,12 @@ import Foundation
 	import UIKit
 	typealias Application = UIApplication
 	typealias Storyboard = UIStoryboard
-	typealias ViewController = UIViewController
+	public typealias ViewController = UIViewController
 #elseif os(OSX)
 	import AppKit
 	typealias Application = NSApplication
 	typealias Storyboard = NSStoryboard
-	typealias ViewController = NSViewController
+	public typealias ViewController = NSViewController
 #endif
 
 private struct AssociatedKeys {
@@ -64,7 +64,7 @@ public extension Storyboard {
 
 /// This class can be added to your storyboard to resolve the view controller as a component.
 @objc public class StoryboardResolver: NSObject {
-	@IBOutlet var viewController: ViewController!
+	@IBOutlet public var viewController: ViewController!
 
 	public override func awakeFromNib() {
 		if let consumer = viewController as? Component {
