@@ -9,18 +9,16 @@
 import Foundation
 
 #if canImport(UIKit)
-import UIKit
-typealias Application = UIApplication
-typealias Storyboard = UIStoryboard
-typealias ViewController = UIViewController
+	import UIKit
+	typealias Application = UIApplication
+	typealias Storyboard = UIStoryboard
+	typealias ViewController = UIViewController
 #elseif os(OSX)
-import AppKit
-typealias Application = NSApplication
-typealias Storyboard = NSStoryboard
-typealias ViewController = NSViewController
+	import AppKit
+	typealias Application = NSApplication
+	typealias Storyboard = NSStoryboard
+	typealias ViewController = NSViewController
 #endif
-
-
 
 private struct AssociatedKeys {
 	static var container = "wind_container"
@@ -33,7 +31,6 @@ private struct AssociatedKeys {
 		super.init()
 	}
 }
-
 
 public extension Application {
 	var Container: Container? {

@@ -92,7 +92,7 @@ public extension AutomaticDependencyHandling {
 		if let component = dependencies[key]?.first as? T {
 			return component
 		} else {
-            print("Key \"\(key)\" not found in dependencies for consumer \"\(type(of: self))\". It only has:\n\(self.dependiesDescription())")
+            print("Key \"\(key)\" not found in dependencies for consumer \"\(type(of: self))\". It only has:\n\(self.dependenciesDescription())")
 			
             let result = containerHasDependencyForType(T.self)
 			if  result == false {
@@ -207,7 +207,7 @@ private extension Component where Self: AutomaticDependencyHandling {
 		return componentFound
 	}
 	
-	func dependiesDescription() -> String {
+	func dependenciesDescription() -> String {
 		return dependencies.map { (key, value) in
 			return "\(key) -> \(type(of: value.first!))"
 			}.joined(separator: "\n")

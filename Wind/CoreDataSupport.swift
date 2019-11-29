@@ -6,9 +6,8 @@
 //  Copyright © 2017 Palasthotel. All rights reserved.
 //
 
-import Foundation
 import CoreData
-
+import Foundation
 
 private struct AssociatedKeys {
 	static var container = "wind_container"
@@ -32,22 +31,21 @@ public extension NSManagedObjectContext {
 }
 
 open class WindManagedObject: NSManagedObject, AutomaticDependencyHandling, AutomaticWeakDependencyHandling {
-
 	public var dependencies: [String: [Component]] = [:]
 	public var weakDependencies: [String: [WeakReference]] = [:]
 
 	open override func awakeFromFetch() {
 		super.awakeFromFetch()
-		try! self.managedObjectContext?.Container?.resolve(for: self)
+		try! managedObjectContext?.Container?.resolve(for: self)
 	}
 
 	open override func awake(fromSnapshotEvents flags: NSSnapshotEventType) {
 		super.awake(fromSnapshotEvents: flags)
-		try! self.managedObjectContext?.Container?.resolve(for: self)
+		try! managedObjectContext?.Container?.resolve(for: self)
 	}
 
 	open override func awakeFromInsert() {
 		super.awakeFromInsert()
-		try! self.managedObjectContext?.Container?.resolve(for: self)
+		try! managedObjectContext?.Container?.resolve(for: self)
 	}
 }

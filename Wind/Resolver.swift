@@ -14,9 +14,8 @@ import Foundation
 /// Fills in all dependencies it is capable of.
 /// In direct mode it tries to meet a single dependency directly.
 
-public protocol Resolver:class {
-    func resolve(on consumer:Component) -> Void
-    func resolutionPossible(on consumer:Component) -> Bool
-    func resolveDirectly<T>()->T?
-    
+public protocol Resolver: class {
+	func resolve(on consumer: Component) -> Void
+	func resolutionPossible(on consumer: Component) -> Bool
+	func resolveDirectly<T>() -> T?
 }

@@ -11,50 +11,49 @@ import Foundation
 /// If your component depends on a foreign instantiated object,
 /// it needs to be aware of weak dependencies.
 /// If you don't want to think about it, simply conform to AutomaticWeakDependencyHandling.
-public protocol WeakDependencyAware:Component {
-    /// Components handed in via this function are not allowed to be
-    /// strongly referenced.
-    func fill(dependency:Any.Type, weaklyWith object:Component) -> Void;
+public protocol WeakDependencyAware: Component {
+	/// Components handed in via this function are not allowed to be
+	/// strongly referenced.
+	func fill(dependency: Any.Type, weaklyWith object: Component) -> Void
 }
 
 /// WeakReference is used to store weak references to foreign instantiated components.
 /// you should almost never use it directly.
 public class WeakReference {
-    weak var Instance:Component?;
-    
-    init(pointingAt component:Component) {
-        Instance = component;
-    }
+	weak var Instance: Component?
+
+	init(pointingAt component: Component) {
+		Instance = component
+	}
 }
 
-public protocol AutomaticWeakDependencyHandling:AutomaticDependencyHandling,WeakDependencyAware {
-    var weakDependencies:[String:[WeakReference]] {get set}
+public protocol AutomaticWeakDependencyHandling: AutomaticDependencyHandling, WeakDependencyAware {
+	var weakDependencies: [String: [WeakReference]] { get set }
 }
 
 public extension AutomaticWeakDependencyHandling {
-    func fill(dependency:Any.Type, weaklyWith object:Component) -> Void {
-        let key=String(describing:dependency);
-        if(weakDependencies[key] == nil) {
-            weakDependencies[key] = [];
-        }
-        weakDependencies[key]?.append(WeakReference(pointingAt:object));
-    }
-    
-    func weakComponent<T>() -> T? {
-        let options = weakDependencies[String(describing:T.self)];
-        guard let possibleoptions = options else {
-            return nil;
-        }
-        return possibleoptions.filter({$0.Instance != nil}).first?.Instance as? T;
-    }
-    
-    func weakComponents<T>() -> [T] {
-        let options = weakDependencies[String(describing:T.self)];
-        guard let possibleoptions = options else {
-            return [];
-        }
-        let living = possibleoptions.filter({$0.Instance != nil}).map({$0.Instance! as! T});
-        return living;
-    }
-}
+	func fill(dependency: Any.Type, weaklyWith object: Component) {
+		let key = String(describing: dependency)
+		if weakDependencies[key] == nil {
+			weakDependencies[key] = []
+		}
+		weakDependencies[key]?.append(WeakReference(pointingAt: object))
+	}
 
+	func weakComponent<T>() -> T? {
+		let options = weakDependencies[String(describing: T.self)]
+		guard let possibleoptions = options else {
+			return nil
+		}
+		return possibleoptions.filter({ $0.Instance != nil }).first?.Instance as? T
+	}
+
+	func weakComponents<T>() -> [T] {
+		let options = weakDependencies[String(describing: T.self)]
+		guard let possibleoptions = options else {
+			return []
+		}
+		let living = possibleoptions.filter({ $0.Instance != nil }).map({ $0.Instance! as! T })
+		return living
+	}
+}
