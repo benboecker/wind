@@ -57,6 +57,7 @@
 		96F7D1E61EEEC1C900492E04 /* FactoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F7D1E51EEEC1C900492E04 /* FactoriesTests.swift */; };
 		96F7D1E81EEEC33800492E04 /* ForeignInstancesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F7D1E71EEEC33800492E04 /* ForeignInstancesTests.swift */; };
 		96F7D1EC1EF1105E00492E04 /* MultipleDependencyResolutionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F7D1EB1EF1105E00492E04 /* MultipleDependencyResolutionTests.swift */; };
+		B332DA072391539600605437 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = B332DA062391539600605437 /* Package.swift */; };
 		B37B7A632089E5A00011844C /* WrongInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37B7A622089E5A00011844C /* WrongInterfaceTests.swift */; };
 		B3F1023721130A0000ED1E7B /* Wind_mac.h in Headers */ = {isa = PBXBuildFile; fileRef = B3F1023521130A0000ED1E7B /* Wind_mac.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B3F1023B21130A1300ED1E7B /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967614781EE6F0B50045FBA3 /* Component.swift */; };
@@ -185,6 +186,7 @@
 		96F7D1E51EEEC1C900492E04 /* FactoriesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactoriesTests.swift; sourceTree = "<group>"; };
 		96F7D1E71EEEC33800492E04 /* ForeignInstancesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForeignInstancesTests.swift; sourceTree = "<group>"; };
 		96F7D1EB1EF1105E00492E04 /* MultipleDependencyResolutionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleDependencyResolutionTests.swift; sourceTree = "<group>"; };
+		B332DA062391539600605437 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		B37B7A622089E5A00011844C /* WrongInterfaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongInterfaceTests.swift; sourceTree = "<group>"; };
 		B3F10233211309FF00ED1E7B /* Wind.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Wind.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3F1023521130A0000ED1E7B /* Wind_mac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wind_mac.h; sourceTree = "<group>"; };
@@ -281,8 +283,9 @@
 		967614541EE6F0880045FBA3 = {
 			isa = PBXGroup;
 			children = (
+				B332DA062391539600605437 /* Package.swift */,
 				960F6A4D1EE735410047733F /* Readme.md */,
-				967614601EE6F0880045FBA3 /* Wind */,
+				967614601EE6F0880045FBA3 /* Sources */,
 				9676146B1EE6F0880045FBA3 /* WindTests */,
 				9607F0141EEAA9AF0010C7FF /* WindSample */,
 				9648DEC61FD6D21C00FC2B8C /* CoreDataSample */,
@@ -307,7 +310,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		967614601EE6F0880045FBA3 /* Wind */ = {
+		967614601EE6F0880045FBA3 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				967614611EE6F0880045FBA3 /* Wind.h */,
@@ -323,7 +326,7 @@
 				9648DEBF1FD6C34A00FC2B8C /* CoreDataSupport.swift */,
 				96875AB22125B35F0026C10A /* ObjectRegistry.swift */,
 			);
-			path = Wind;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		9676146B1EE6F0880045FBA3 /* WindTests */ = {
@@ -705,6 +708,7 @@
 				9676147B1EE6F1F70045FBA3 /* Resolver.swift in Sources */,
 				967614811EE6F3560045FBA3 /* Factories.swift in Sources */,
 				9607F02B1EEABC520010C7FF /* WeakDependencies.swift in Sources */,
+				B332DA072391539600605437 /* Package.swift in Sources */,
 				9676147D1EE6F2500045FBA3 /* Resolvers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1074,7 +1078,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Wind/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.palasthotel.Wind;
@@ -1095,7 +1099,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Wind/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.palasthotel.Wind;
